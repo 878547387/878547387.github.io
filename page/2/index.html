@@ -1,0 +1,331 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>
+    Gridea
+</title>
+<link rel="shortcut icon" href="https://878547387.github.io/favicon.ico?v=1690894257918">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://878547387.github.io/styles/main.css">
+<!-- js -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://878547387.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+    <div class="nav">
+        <div class="logo">
+            <a href="https://878547387.github.io">
+                <img class="avatar" src="https://878547387.github.io/images/avatar.png?v=1690894257918" alt="">
+            </a>
+            <div class="site-title">
+                <h1>
+                    Gridea
+                </h1>
+            </div>
+        </div>
+        <span class="menu-btn fa fa-align-justify"></span>
+        <div class="menu-container">
+            <ul>
+                
+                    
+                            <li>
+                                <a href="/" class="menu">
+                                    首页
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/archives" class="menu">
+                                    归档
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/tags" class="menu">
+                                    标签
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/post/about" class="menu">
+                                    关于
+                                </a>
+                            </li>
+                            
+                                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".menu-btn").click(function() {
+            $(".menu-container").slideToggle();
+        });
+        $(window).resize(function() {
+
+            if (window.matchMedia('(min-width: 960px)').matches) {
+                $(".menu-container").css('display', 'block')
+            } else {
+                $(".menu-container").css('display', 'none')
+            }
+
+        });
+    });
+</script>
+
+            <div id="main-content" class="post-container main-container">
+                <div id="content" class="main-container-left">
+                    
+        
+            <article class="post i-card">
+                <h2 class="post-title">
+                    <a href="https://878547387.github.io/post/双系统安装win22h2/">
+                        双系统安装win22h2
+                    </a>
+                </h2>
+                <div class="post-info">
+                    <time class="post-time">2022-08-19</time>
+                    
+                </div>
+                <div class="post-article">
+                    
+                            <div class="post-content">
+                                
+                                        <div class="post-content-content">
+                                            思维导图
+
+修复过程
+正常情况下，安装预览版只需要 设置-windows更新-预览体验计划。无奈我安装了多系统，而且参加预览计划本身也需要一些操作，所以我在这条路上怎么也走不通，于是我开始折腾镜像升级。
+下载镜像
+首先，我在windows论坛上检索到了这样一篇帖子：
+[post url=&amp;quot;https://answers.microsoft.com/zh-hans/insider/forum/all/windows11/2b0bd5f6-d37f-43f4-872e-88072fdfa056 &amp;quot; title=&amp;quot;Windows预览版更新安装失败&amp;quot; intro=&amp;quot;&amp;quot; cover=&amp;quot;&amp;quot;]
+成功地拿到了预览版下载链接：
+[link]
+[item name=&amp;quot;Windows预览版下载地址&amp;quot; link=&amp;quot;https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso&amp;quot; desc=&amp;quot;windowsinsiderpreviewiso&amp;quot; /]
+[/link]
+镜像下载好后，双击打开，可以看到 setup.exe，然后再双击，就进入了升级页面。升级的每一步都要经过上分钟甚至好几分钟的等待，检查系统都要好几分钟，令人费解。
+更令我血脉喷张的时，经过漫长等待后，他提示 无法判断您的电脑是否有足够空间安装windows11。看了下C盘，还有20G，我想这不是空间的问题，应该是别的地方出了问题。
+无法判断您的电脑是否有足够空间安装win11
+出现问题就搜索，浏览器输入报错信息，经过惨绝人寰的信息检索，有幸看到了这篇帖子：
+[post url=&amp;quot;https://bbs.pcbeta.com/viewthread-1900566-1-1.html&amp;quot; title=&amp;quot;Windows11无法安装，800703ee问题分享&amp;quot; intro=&amp;quot;&amp;quot; cover=&amp;quot;&amp;quot;]
+楼主更新win11遇到了和我一样的问题，而且他和我一样，安装了双系统（win+linux），所以我初步判定，问题也一样：双系统导致win引导缺失。然后 WIN+R-msconfig，进入引导选项，果不其然，引导项直接空白。
+[scode type=&amp;quot;yellow&amp;quot;] 安装双系统时，为linux单独新建一个esp分区，而不是使用win分配的分区即可避免这个问题。   ——2022年8月27 [/scode]
+修复windows引导项
+接下来就要修复windows系统引导。
+
+bcdboot C:\Windows  报出奇怪的错误
+进入提前刷好的微pe系统，使用引导修复工具（微pe自带）进行修复
+
+我尝试了直接进行修复，发现并不管用，最后无奈之下，我先进行了备份，然后利用DiskGenius软件把引导盘格式化，再进行引导修复。好在结果是好的，成功修复引导，msconfig之后也可以看到引导项。然后win11更新就没再出现其他问题，成功升级win22H2版本。
+带来的麻烦
+我在修复引导项过程中格式化了引导盘，而这个盘还有我的deepin系统引导。我这种方法就会导致deepin引导缺失，还需要使用deepin to go来修复deepin引导，算是一点小小的遗憾。
+
+在使用DiskGenius过程中发现的意外惊喜
+这段时间我饱受C盘爆红的困扰，加上双系统的空间占用，给512G的磁盘造成莫大的压力。最气人的是，对于C盘的爆满，D盘却只会看热闹，甚至不时地嘲讽两句。我这实在看不下去，想着收拾一下D盘，贴补C盘。可是苦于无门，一直没想到方法（主要是我记着磁盘管理只能向后压缩卷，所以没想到怎样向前留出空间给C盘）。
+昨天偶然发现，DiskGenius有拆分空间的功能，而且还可以调整分区前部空间，这样就可以先拆分，再压缩，再给C盘扩容。
+方法：点击需要拆分的分区-鼠标右键-选择拆分分区   然后就能看见下图的界面，如箭头所示，可以在分区前部拆分。
+
+
+                                        </div>
+                                        
+                                            <a class="btn btn-text" href="https://878547387.github.io/post/双系统安装win22h2/">Read More ~</a>
+                            </div>
+                </div>
+            </article>
+            
+            <article class="post i-card">
+                <h2 class="post-title">
+                    <a href="https://878547387.github.io/post/curry wallpaper/">
+                        wallpapaers about curry
+                    </a>
+                </h2>
+                <div class="post-info">
+                    <time class="post-time">2022-08-11</time>
+                    
+                </div>
+                <div class="post-article">
+                    
+                            <div class="post-content">
+                                
+                                        <div class="post-content-content">
+                                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        </div>
+                                        
+                                            <a class="btn btn-text" href="https://878547387.github.io/post/curry wallpaper/">Read More ~</a>
+                            </div>
+                </div>
+            </article>
+            
+            <article class="post i-card">
+                <h2 class="post-title">
+                    <a href="https://878547387.github.io/post/五一放假/">
+                        2022五一放假随笔
+                    </a>
+                </h2>
+                <div class="post-info">
+                    <time class="post-time">2022-05-02</time>
+                    
+                </div>
+                <div class="post-article">
+                    
+                            <div class="post-content">
+                                
+                                        <div class="post-content-content">
+                                            放假初这两天总结:
+这两天干了些啥？昨天上午一大早就去了办公室，上学学习状态还行，正常状态。下午的时候，就有点懈怠了。在只有我一个人的办公室，懒惰、颓废的情绪突然爆发并且内心没有明显的抗拒，如洪水般不可收拾。于是我就躺在沙发上刷手机到晚上。回到宿舍继续玩手机，直到凌晨[皱眉]。
+昨天的总结都没有写[凋谢]，可见浑噩。
+回想高中到现在，这种情况经常在我身上发生。
+总是在一段时间的自律、充实后懈怠。紧接着就是自责、反省，最后主动或者被动再出发。问题持续至今，仍为解决。细想，值得注意的是，这种堕落通常发生在只有我一个人的情况下。比如高中晚自习放假回家，比如寒暑假一个人在家，又比如今昨两天身边只剩下我一个人。
+想到了一个词“慎独”。在我的小学、初中阶段，学习基本是被动的，甚至是“因为老师觉得我成绩好，所以我不敢成绩差”，不明不白的努力活成老师喜欢的样子；高中大学以后，有一些想法了，想活成自己的样子，我说自己“想要自由”。从结果来看，努力活成自己，追求内心的自由的确带给我很多全新的，属于我自己的体验。同样的，也让我失去了一些标准。比如****完全服从内心，也服从了内心的懒惰和人性或者说骨子里面的“恶”。我并没有做到人前人后言行一致，这是我追求的，但并不是我做到的，而且存在相当距离。
+**顺康，想一想正常生活节奏与颓靡生活节奏下的状态不同吧。正常状态下，遇到的事情、面临的挑战是“过脑子”的，会经过自己的思考，做出自己的判断——清醒、理智，同时追求成熟稳重。颓靡状态的导火索就是不过脑子，完全遵从身体，灵魂靠边站。一股脑子的想都不想就去颓废了。并且越颓废，越颓废，甚至身体爱上了颓废。啥都不干，身体还挺喜欢。因为颓废，所以颓废。然后总会有那么一个时间点，自己不得不清醒，于是开始自责、反思。反思这么久了，这件事一直没反思到点子上。今天想个明白，想个痛快。总的来说，颓废约等于不过脑子，肉体打败了灵魂。那么，****怎么才能让灵魂一直在线呢？**这是我需要长期思考的问题。
+
+减少诱惑，对抗诱惑。
+顺康，你知道的&amp;quot;太多了&amp;quot;，现在你必须学会忘记那些于你无用的信息，像个不经世事的孩子(白纸)一样生活。
+**害，总盼着长大，也没有多好不是吗？知道的太多了，面对的诱惑、挑战太多了。不也是很痛苦的一件事吗？啥都知道反而快乐。**你必须要学会甄别信息，并有选择的接受。
+我想做到：在身边没有人监督的情况下，内心依然坚定强大，依然清醒地热爱生活，享受生活，在自己的目标上坚定前行。
+可以落实的行动：之前老想着做一个模板，写下时刻需要注意的事情，哪些是红线，绝对不能像不能做。
+这张纸上需要有些啥？
+红线、时刻提醒：灵魂要能够控制身体，再高深的思想没有付出行动都只是空谈……、日日问：准备好接受今天的挑战了吗？（一切的困难都看成挑战）：生活的常态：改变，克服困难，专注内心，防止懈怠。
+仍存在的疑惑想请教老师:请问露露老师，你是怎么做到时刻保持清醒不至于颓废懈怠的呢？有啥方法吗？谢谢老师哦。（你工作这么忙，回答问题的态度还这样好，所以我觉得老师您这种稳定的生活状态一定有值得借鉴的地方）
+
+                                        </div>
+                                        
+                                            <a class="btn btn-text" href="https://878547387.github.io/post/五一放假/">Read More ~</a>
+                            </div>
+                </div>
+            </article>
+            
+            <article class="post i-card">
+                <h2 class="post-title">
+                    <a href="https://878547387.github.io/post/hello-gridea/">
+                        Hello Gridea
+                    </a>
+                </h2>
+                <div class="post-info">
+                    <time class="post-time">2018-12-12</time>
+                    
+                        <a href="https://878547387.github.io/tag/m9vJGUYjl/" class="post-tag i-tag
+                            i-tag-success">
+            #Gridea
+        </a>
+                        
+                </div>
+                <div class="post-article">
+                    
+                        <a href="https://878547387.github.io/post/hello-gridea/" class="post-feature-image" style="background-image:url(https://878547387.github.io/post-images/hello-gridea.png) ">
+                        </a>
+                        
+                            <div class="post-content">
+                                
+                                    <div class="post-content-abstract">
+                                        <p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+
+                                    </div>
+                                    
+                                            <a class="btn btn-text" href="https://878547387.github.io/post/hello-gridea/">Read More ~</a>
+                            </div>
+                </div>
+            </article>
+            
+                <!-- 翻页 -->
+                
+    <div class="pagination-container">
+        
+            <a href="https://878547387.github.io/" class="page-btn btn">上一页</a>
+            
+                
+    </div>
+    
+                </div>
+                <!--  -->
+                <div class="main-container-middle"></div>
+                <!--  -->
+                <div id="sidebar" class="main-container-right">
+
+                    <!-- 个人信息 -->
+                    
+    <div class="id_card i-card">
+        <div class="id_card-avatar" style="background-image: url(https://878547387.github.io/images/avatar.png?v=1690894257918)">
+        </div>
+        <h1 class="id_card-title">
+            Gridea
+        </h1>
+        <h2 class="id_card-description">
+            温故而知新
+        </h2>
+        <!--  -->
+        <div class="id_card-sns">
+            <!-- github -->
+            
+                    <!-- twitter -->
+                    
+                            <!-- weibo -->
+                            
+                                    <!-- facebook -->
+                                    
+
+        </div>
+    </div>
+    
+
+                        <!-- 公告栏 -->
+                        
+
+                </div>
+            </div>
+
+
+
+            <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://878547387.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+    <script>
+        $('#sidebar').stickySidebar({
+            topSpacing: 80,
+            // bottomSpacing: 60
+        });
+    </script>
+</body>
+
+</html>

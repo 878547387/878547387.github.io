@@ -1,0 +1,239 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>
+    双系统安装win22h2 | Gridea
+</title>
+<link rel="shortcut icon" href="https://878547387.github.io/favicon.ico?v=1690894257918">
+<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+<link rel="stylesheet" href="https://878547387.github.io/styles/main.css">
+<!-- js -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://878547387.github.io/media/js/jquery.sticky-sidebar.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
+
+        
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+    <div class="nav">
+        <div class="logo">
+            <a href="https://878547387.github.io">
+                <img class="avatar" src="https://878547387.github.io/images/avatar.png?v=1690894257918" alt="">
+            </a>
+            <div class="site-title">
+                <h1>
+                    Gridea
+                </h1>
+            </div>
+        </div>
+        <span class="menu-btn fa fa-align-justify"></span>
+        <div class="menu-container">
+            <ul>
+                
+                    
+                            <li>
+                                <a href="/" class="menu">
+                                    首页
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/archives" class="menu">
+                                    归档
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/tags" class="menu">
+                                    标签
+                                </a>
+                            </li>
+                            
+                                
+                    
+                            <li>
+                                <a href="/post/about" class="menu">
+                                    关于
+                                </a>
+                            </li>
+                            
+                                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $(".menu-btn").click(function() {
+            $(".menu-container").slideToggle();
+        });
+        $(window).resize(function() {
+
+            if (window.matchMedia('(min-width: 960px)').matches) {
+                $(".menu-container").css('display', 'block')
+            } else {
+                $(".menu-container").css('display', 'none')
+            }
+
+        });
+    });
+</script>
+
+            <div id="main-content" class="post-detail main-container">
+                <!-- left -->
+                <div id="content" class="main-container-left">
+                    <article class="post i-card">
+                        <h2 class="post-title">
+                            双系统安装win22h2
+                        </h2>
+                        <div class="post-info">
+                            <time class="post-time">2022-08-19</time>
+                            
+                        </div>
+                        
+                                <div class="post-content">
+                                    <h1 id="思维导图">思维导图<img src="https://oss.zhangshunkang.cn/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220820130233.webp" alt="" loading="lazy"></h1>
+<hr>
+<h1 id="修复过程">修复过程</h1>
+<p>正常情况下，安装预览版只需要 <code>设置-windows更新-预览体验计划</code>。无奈我安装了多系统，而且参加预览计划本身也需要一些操作，所以我在这条路上怎么也走不通，于是我开始折腾镜像升级。</p>
+<h2 id="下载镜像">下载镜像</h2>
+<p>首先，我在windows论坛上检索到了这样一篇帖子：</p>
+<p>[post url=&quot;https://answers.microsoft.com/zh-hans/insider/forum/all/windows11/2b0bd5f6-d37f-43f4-872e-88072fdfa056 &quot; title=&quot;Windows预览版更新安装失败&quot; intro=&quot;&quot; cover=&quot;&quot;]</p>
+<p>成功地拿到了预览版下载链接：</p>
+<p>[link]<br>
+[item name=&quot;Windows预览版下载地址&quot; link=&quot;https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewiso&quot; desc=&quot;windowsinsiderpreviewiso&quot; /]</p>
+<p>[/link]</p>
+<p>镜像下载好后，双击打开，可以看到 <code>setup.exe</code>，然后再双击，就进入了升级页面。升级的每一步都要经过上分钟甚至好几分钟的等待，检查系统都要好几分钟，令人费解。</p>
+<p>更令我血脉喷张的时，经过漫长等待后，他提示 <code>无法判断您的电脑是否有足够空间安装windows11</code>。看了下C盘，还有20G，我想这不是空间的问题，应该是别的地方出了问题。</p>
+<h2 id="无法判断您的电脑是否有足够空间安装win11">无法判断您的电脑是否有足够空间安装win11</h2>
+<p>出现问题就搜索，浏览器输入报错信息，经过惨绝人寰的信息检索，有幸看到了这篇帖子：</p>
+<p>[post url=&quot;https://bbs.pcbeta.com/viewthread-1900566-1-1.html&quot; title=&quot;Windows11无法安装，800703ee问题分享&quot; intro=&quot;&quot; cover=&quot;&quot;]</p>
+<p>楼主更新win11遇到了和我一样的问题，而且他和我一样，安装了双系统（win+linux），所以我初步判定，问题也一样：双系统导致win引导缺失。然后 <code>WIN+R-msconfig</code>，进入引导选项，果不其然，引导项直接空白。</p>
+<p>[scode type=&quot;yellow&quot;]<code> </code>安装双系统时，为linux单独新建一个esp分区，而不是使用win分配的分区即可避免这个问题。   ——2022年8月27 [/scode]</p>
+<h2 id="修复windows引导项">修复windows引导项</h2>
+<p>接下来就要修复windows系统引导。</p>
+<ul>
+<li><code>bcdboot C:\Windows</code>  报出奇怪的错误</li>
+<li>进入提前刷好的微pe系统，使用引导修复工具（微pe自带）进行修复</li>
+</ul>
+<p>我尝试了直接进行修复，发现并不管用，最后无奈之下，我先进行了备份，然后利用DiskGenius软件把引导盘格式化，再进行引导修复。好在结果是好的，成功修复引导，msconfig之后也可以看到引导项。然后win11更新就没再出现其他问题，成功升级win22H2版本。</p>
+<h2 id="带来的麻烦">带来的麻烦</h2>
+<p>我在修复引导项过程中格式化了引导盘，而这个盘还有我的deepin系统引导。我这种方法就会导致deepin引导缺失，还需要使用deepin to go来修复deepin引导，算是一点小小的遗憾。</p>
+<hr>
+<h1 id="在使用diskgenius过程中发现的意外惊喜">在使用DiskGenius过程中发现的意外惊喜</h1>
+<p>这段时间我饱受C盘爆红的困扰，加上双系统的空间占用，给512G的磁盘造成莫大的压力。最气人的是，对于C盘的爆满，D盘却只会看热闹，甚至不时地嘲讽两句。我这实在看不下去，想着收拾一下D盘，贴补C盘。可是苦于无门，一直没想到方法（主要是我记着磁盘管理只能向后压缩卷，所以没想到怎样向前留出空间给C盘）。</p>
+<p>昨天偶然发现，DiskGenius有拆分空间的功能，而且还可以调整分区前部空间，这样就可以先拆分，再压缩，再给C盘扩容。</p>
+<p>方法：点击需要拆分的分区-鼠标右键-选择拆分分区   然后就能看见下图的界面，如箭头所示，可以在分区前部拆分。</p>
+<figure data-type="image" tabindex="1"><img src="https://oss.zhangshunkang.cn/img/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20220820130436.webp" alt="" loading="lazy"></figure>
+
+                                </div>
+                    </article>
+                    <!--  -->
+                    
+                        <div class="next-post">
+                            <div class="next">下一篇</div>
+                            <a href="https://878547387.github.io/post/curry wallpaper/">
+                                <h3 class="post-title">
+                                    wallpapaers about curry
+                                </h3>
+                            </a>
+                        </div>
+                        
+                            <div id="disqus_thread"></div>
+                            <div id="gitalk-container"></div>
+                </div>
+                <!-- middle -->
+                <div class="main-container-middle"></div>
+                <!-- right -->
+                <div id="sidebar" class="main-container-right">
+                    
+                        <!-- toc -->
+                        
+    <div class="toc-card i-card ">
+        <div class="toc-title i-card-title">目录</div>
+        <div class="toc-content">
+            <ul class="markdownIt-TOC">
+<li><a href="#%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE">思维导图!</a></li>
+<li><a href="#%E4%BF%AE%E5%A4%8D%E8%BF%87%E7%A8%8B">修复过程</a>
+<ul>
+<li><a href="#%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F">下载镜像</a></li>
+<li><a href="#%E6%97%A0%E6%B3%95%E5%88%A4%E6%96%AD%E6%82%A8%E7%9A%84%E7%94%B5%E8%84%91%E6%98%AF%E5%90%A6%E6%9C%89%E8%B6%B3%E5%A4%9F%E7%A9%BA%E9%97%B4%E5%AE%89%E8%A3%85win11">无法判断您的电脑是否有足够空间安装win11</a></li>
+<li><a href="#%E4%BF%AE%E5%A4%8Dwindows%E5%BC%95%E5%AF%BC%E9%A1%B9">修复windows引导项</a></li>
+<li><a href="#%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%BA%BB%E7%83%A6">带来的麻烦</a></li>
+</ul>
+</li>
+<li><a href="#%E5%9C%A8%E4%BD%BF%E7%94%A8diskgenius%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%8F%91%E7%8E%B0%E7%9A%84%E6%84%8F%E5%A4%96%E6%83%8A%E5%96%9C">在使用DiskGenius过程中发现的意外惊喜</a></li>
+</ul>
+
+        </div>
+        <script>
+            function locateCatelogList() {
+                /*获取文章目录集合,可通过:header过滤器*/
+                var alis = $('.post-content :header');
+                /*获取侧边栏目录列表集合**/
+                var sidebar_alis = $('.markdownIt-TOC a');
+                /*获取滚动条到顶部的距离*/
+                var scroll_height = $(window).scrollTop();
+                for (var i = 0; i < alis.length; i++) {
+                    /*获取锚点集合中的元素分别到顶点的距离*/
+                    var a_height = $(alis[i]).offset().top;
+                    if (a_height < scroll_height) {
+                        /*高亮显示*/
+                        sidebar_alis.removeClass('on');
+                        $(sidebar_alis[i]).addClass('on');
+                    }
+                }
+            }
+            $(function() {
+                /*绑定滚动事件 */
+                $(window).bind('scroll', locateCatelogList);
+            });
+        </script>
+    </div>
+    
+                            
+
+                </div>
+
+
+
+
+            </div>
+
+
+            <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a> | 
+  <a class="rss" href="https://878547387.github.io/atom.xml" target="_blank">RSS</a>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+
+    </div>
+    <script>
+        $('#sidebar').stickySidebar({
+            topSpacing: 80,
+            // bottomSpacing: 60
+        });
+    </script>
+    
+</body>
+
+</html>
